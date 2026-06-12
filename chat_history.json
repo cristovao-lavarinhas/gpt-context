@@ -1,5 +1,19 @@
 [
   {
+    "id": 1781290115721,
+    "title": "Mostra-me alguns dos recordes mundiais a...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Mostra-me alguns dos recordes mundiais atuais no atletismo olímpico."
+      },
+      {
+        "role": "assistant",
+        "content": "⚠️ Não foi possível conectar ao Ollama. Certifica-te de que o Ollama está a correr em `http://127.0.0.1:11434`."
+      }
+    ]
+  },
+  {
     "id": 1781224464951,
     "title": "Explica o significado das bandeiras e os...",
     "messages": [

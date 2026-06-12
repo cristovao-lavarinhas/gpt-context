@@ -822,7 +822,7 @@ def main():
     st.set_page_config(
         page_title="SportSphere",
         page_icon="⚽",
-        layout="centered",
+        layout="wide",
         initial_sidebar_state="expanded",
     )
 
@@ -836,16 +836,21 @@ def main():
             font-family: "Segoe UI", "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
         }
 
+        /* Use wide layout — sidebar sits beside content */
         [data-testid="stAppViewContainer"] {
             width: 100%;
             max-width: none;
-            padding: 0 20px !important;
+            padding: 0 !important;
         }
 
+        /* Main content block: centered within the available space */
         .block-container {
-            max-width: 900px !important;
-            padding-left: 1rem !important;
-            padding-right: 1rem !important;
+            max-width: 860px !important;
+            width: 100% !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            padding-left: 2rem !important;
+            padding-right: 2rem !important;
             padding-top: 1rem !important;
             padding-bottom: 1rem !important;
         }
@@ -853,15 +858,32 @@ def main():
         /* Center tab content */
         [role="tabpanel"] {
             width: 100%;
-            max-width: 800px;
+            max-width: 100%;
             margin: 0 auto !important;
         }
 
+        /* ── Sidebar ── */
         section[data-testid="stSidebar"] {
             background-color: #fafafa;
             border-right: 1px solid #e5e5e5;
-            min-width: 220px !important;
-            max-width: 280px !important;
+            width: 260px !important;
+            min-width: 260px !important;
+            max-width: 260px !important;
+        }
+
+        /* Collapsed sidebar: keep collapse/expand button visible and in the right place */
+        section[data-testid="stSidebar"][aria-expanded="false"] {
+            width: 0px !important;
+            min-width: 0px !important;
+            overflow: visible !important;
+        }
+
+        /* Sidebar toggle button — always pinned to left edge */
+        [data-testid="stSidebarCollapsedControl"] {
+            position: fixed !important;
+            left: 0.5rem !important;
+            top: 0.75rem !important;
+            z-index: 999999 !important;
         }
 
         section[data-testid="stSidebar"] .new-chat-sidebar button {
@@ -987,13 +1009,13 @@ def main():
         }
 
         .stChatMessage {
-            max-width: 768px; 
+            max-width: 860px; 
             margin: 0 auto; 
             width: 100%;
         }
 
         .stChatInput {
-            max-width: 768px;
+            max-width: 860px;
             margin: 0 auto !important;
             padding-bottom: 1rem;
             width: 100% !important;
@@ -1002,7 +1024,7 @@ def main():
         }
 
         [data-testid="stChatInputContainer"] {
-            max-width: 768px;
+            max-width: 860px;
             margin: 0 auto !important;
             width: 100% !important;
         }

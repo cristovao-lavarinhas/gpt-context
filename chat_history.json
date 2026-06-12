@@ -1,0 +1,690 @@
+[
+  {
+    "id": 1781224464951,
+    "title": "Explica o significado das bandeiras e os...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Explica o significado das bandeiras e os tipos de pneus usados na Fórmula 1."
+      },
+      {
+        "role": "assistant",
+        "content": "As bandeiras vermelhas em uma corrida de Fórmula 1 indicam que há um problema sério, geralmente relacionado a segurança. Seu uso é decidido pelo Comissário de Pista (Pit Marshal) com base nas condições da pista e na segurança dos pilotos.\n\nQuanto aos pneus, em uma corrida de Fórmula 1, são usados quatro tipos principais de pneus:\n\n1. **Pneus Secos**: Usados durante sessões de treino livre e corridas quando a pista está seca.\n2. **Pneus Intermediários**: Usados em condições de chuva leve ou neblina.\n3. **Pneus Húmidos**: Usados em condições de chuva moderada ou forte.\n\nOs pneus são escolhidos pelo piloto com base nas condições da pista e na estratégia do carro. A FIA estabelece limites para o número de sets de pneus que podem ser usados durante uma corrida, dependendo das condições climáticas e se há sessões de sprint disponíveis.\n\nPara testes, os pilotos podem usar até 40 conjuntos de pneus diferentes, mas isso é controlado pela FIA."
+      }
+    ]
+  },
+  {
+    "id": 1781224204406,
+    "title": "Quais são as principais regras do basque...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Quais são as principais regras do basquetebol na NBA e na FIBA?"
+      },
+      {
+        "role": "assistant",
+        "content": "Não encontrei essa informação nos meus ficheiros locais."
+      }
+    ]
+  },
+  {
+    "id": 1781223915107,
+    "title": "Quais são as principais regras do basque...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Quais são as principais regras do basquetebol na NBA e na FIBA?"
+      },
+      {
+        "role": "assistant",
+        "content": "Não encontrei essa informação nos meus ficheiros locais."
+      }
+    ]
+  },
+  {
+    "id": 1778501013238,
+    "title": "Quais são as principais regras do basque...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Quais são as principais regras do basquetebol na NBA e na FIBA?"
+      },
+      {
+        "role": "assistant",
+        "content": "Não encontrei essa informação nos meus ficheiros locais."
+      }
+    ]
+  },
+  {
+    "id": 1778500339446,
+    "title": "ola",
+    "messages": [
+      {
+        "role": "user",
+        "content": "ola"
+      },
+      {
+        "role": "assistant",
+        "content": "Olá! Como posso ajudar você hoje?"
+      }
+    ]
+  },
+  {
+    "id": 1778497039169,
+    "title": "ola",
+    "messages": [
+      {
+        "role": "user",
+        "content": "ola"
+      },
+      {
+        "role": "assistant",
+        "content": "⚠️ Não foi possível conectar ao Ollama. Certifica-te de que o Ollama está a correr em `http://127.0.0.1:11434`."
+      },
+      {
+        "role": "user",
+        "content": "ola"
+      },
+      {
+        "role": "assistant",
+        "content": "⚠️ Não encontrei essa informação nos meus ficheiros locais."
+      }
+    ]
+  },
+  {
+    "id": 1778244460289,
+    "title": "Explica o significado das bandeiras e os...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Explica o significado das bandeiras e os tipos de pneus usados na Fórmula 1."
+      },
+      {
+        "role": "assistant",
+        "content": "As bandeiras vermelhas em uma corrida de Fórmula 1 indicam que há um problema sério, geralmente relacionado a segurança. Seu uso é decidido pelo Comissário de Pista (Pit Marshal) com base nas condições da pista e na segurança dos pilotos.\n\nQuanto aos pneus, em uma corrida de Fórmula 1, são usados quatro tipos principais de pneus:\n\n1. **Pneus Secos**: Usados durante sessões de treino livre e corridas quando a pista está seca.\n2. **Pneus Intermediários**: Usados em condições de chuva leve ou neblina.\n3. **Pneus Húmidos**: Usados em condições de chuva moderada ou forte.\n\nOs pneus são escolhidos pelo piloto com base nas condições da pista e na estratégia do carro. A FIA estabelece limites para o número de sets de pneus que podem ser usados durante uma corrida, dependendo das condições climáticas e se há sessões de sprint disponíveis.\n\nPara testes, os pilotos podem usar até 40 conjuntos de pneus diferentes, mas isso é controlado pela FIA."
+      }
+    ]
+  },
+  {
+    "id": 1778191369924,
+    "title": "Quais são as principais regras do basque...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Quais são as principais regras do basquetebol na NBA e na FIBA?"
+      },
+      {
+        "role": "assistant",
+        "content": "⚠️ Não foi possível conectar ao Ollama. Certifica-te de que o Ollama está a correr em `http://127.0.0.1:11434`."
+      }
+    ]
+  },
+  {
+    "id": 1778191049239,
+    "title": "Quais são as principais regras do basque...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Quais são as principais regras do basquetebol na NBA e na FIBA?"
+      },
+      {
+        "role": "assistant",
+        "content": "⚠️ Não foi possível conectar ao Ollama. Certifica-te de que o Ollama está a correr em `http://127.0.0.1:11434`."
+      }
+    ]
+  },
+  {
+    "id": 1778181396102,
+    "title": "What are the dimensions of a tennis cour...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What are the dimensions of a tennis court for doubles and singles matches?"
+      },
+      {
+        "role": "assistant",
+        "content": "For doubles matches, the centers of the net posts shall be 3 feet outside the doubles court on each side. For singles matches, if a singles net is used, the centers of the net posts shall be 3 feet outside the singles court on each side. If a doubles net is used, then the net shall be supported at a height of 3½ feet by two singles sticks, the centers of which shall be 3 feet outside the singles court on each side."
+      }
+    ]
+  },
+  {
+    "id": 1778181293218,
+    "title": "Mostra-me alguns dos recordes mundiais a...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Mostra-me alguns dos recordes mundiais atuais no atletismo olímpico."
+      },
+      {
+        "role": "assistant",
+        "content": "Não encontrei essa informação nos meus ficheiros locais."
+      }
+    ]
+  },
+  {
+    "id": 1778181286602,
+    "title": "Podes explicar-me como funcionam os torn...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Podes explicar-me como funcionam os torneios de Grand Slam no Ténis?"
+      },
+      {
+        "role": "assistant",
+        "content": "Os Torneios de Grand Slam no ténis são competições internacionais que ocorrem anualmente em quatro locais diferentes: Melbourne (Australian Open), Roland Garros (Roland-Garros, em França), Wimbledon (Wimbledon) e o US Open. Cada torneio tem suas próprias regras específicas, mas geralmente incluem:\n\n1. O Australian Open é a única competição que permite o uso de um neto duplo.\n2. Os jogos são disputados por duplas ou singles.\n3. As penalidades para erros de saque são diferentes em cada torneio.\n4. A forma como os sets são decididos pode variar entre os torneios.\n\nOs critérios para classificação geralmente incluem a soma dos pontos acumulados nos quatro Grand Slams ao longo da carreira, além de outros fatores como vitórias em torneios importantes e desempenho em competições individuais."
+      }
+    ]
+  },
+  {
+    "id": 1778181277083,
+    "title": "Quais são as principais regras do basque...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Quais são as principais regras do basquetebol na NBA e na FIBA?"
+      },
+      {
+        "role": "assistant",
+        "content": "Não encontrei essa informação nos meus ficheiros locais."
+      }
+    ]
+  },
+  {
+    "id": 1778181263699,
+    "title": "Explica o significado das bandeiras e os...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Explica o significado das bandeiras e os tipos de pneus usados na Fórmula 1."
+      },
+      {
+        "role": "assistant",
+        "content": "As bandeiras vermelhas em uma corrida de Fórmula 1 indicam que a sessão de testes de pneus está em andamento. Durante essa sessão, os pilotos utilizam dois carros para testar as especificações dos pneus que serão usados na temporada seguinte. Um desses carros deve ser pilotado por um piloto com Super Licença ou Super Licença de Prática, e deve usar componentes e software que foram usados em pelo menos uma corrida ou Teste de Condição Crítica durante o ano corrente ou no ano anterior."
+      }
+    ]
+  },
+  {
+    "id": 1778181076717,
+    "title": "O que diz o Artigo 30 dos Regulamentos T...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "O que diz o Artigo 30 dos Regulamentos Técnicos sobre os pneus para a época de 2025?"
+      },
+      {
+        "role": "assistant",
+        "content": "Artigo 30 da Formula 1 Sporting Regulations 2025/107 estabelece as regras de controle de pneus para a temporada. Não há detalhes específicos sobre o Artigo 30 em particular no contexto fornecido."
+      }
+    ]
+  },
+  {
+    "id": 1778180970506,
+    "title": "O que diz o Artigo 30 dos Regulamentos T...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "O que diz o Artigo 30 dos Regulamentos Técnicos sobre os pneus para a época de 2025?"
+      },
+      {
+        "role": "assistant",
+        "content": "Artigo 30 da Formula 1 Sporting Regulations 2025/107 estabelece as regras sobre os pneus para a temporada. Não há detalhes específicos sobre o Artigo 30 em particular no contexto fornecido."
+      }
+    ]
+  },
+  {
+    "id": 1778180095221,
+    "title": "Quais devem ser as distâncias dos postes...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Quais devem ser as distâncias dos postes da rede em relação à linha lateral num jogo de pares e de singulares?"
+      },
+      {
+        "role": "assistant",
+        "content": "Para um jogo de pares, os centros dos postes da rede devem estar 3 pés (0.914 m) ao lado do lado duplo da quadra. Para um jogo de singles, se for usado um poste de rede simples, os centros dos postes da rede devem estar 3 pés (0.914 m) ao lado da quadra de singles. Se for usado uma rede de pares, então a rede deve ser suportada, à altura de 3½ pés (1.07 m), por meio de dois postes simples, cujos centros devem estar 3 pés (0.914 m) ao lado da quadra de singles."
+      },
+      {
+        "role": "user",
+        "content": "Quais são as regras de nacionalidade para um jogador ser convocado para o Mundial de 2026?"
+      },
+      {
+        "role": "assistant",
+        "content": "Os jogadores devem ter a nacionalidade do país ou território representado pela Associação Participante e estar submetidos à sua jurisdição. Além disso, os jogadores devem ser elegíveis para seleção em conformidade com as Leis da FIFA, as Regulamentações Aplicáveis às Leis da FIFA e outras regras e regulamentos da FIFA."
+      },
+      {
+        "role": "user",
+        "content": "O que diz o Artigo 30 dos Regulamentos Técnicos sobre os pneus para a época de 2025?"
+      },
+      {
+        "role": "assistant",
+        "content": "Não encontrei essa informação nos meus ficheiros locais."
+      },
+      {
+        "role": "user",
+        "content": "Quais são as diferenças nos descontos de tempo (time-outs) entre as regras da NBA e da FIBA para 2025-26?"
+      },
+      {
+        "role": "assistant",
+        "content": "Para a NBA, as regras sobre os descontos de tempo são definidas em diferentes seções. Por exemplo:\n\n- Para cada período regulamentar, cada equipe tem dois (2) timeouts.\n- Em períodos de desempate, cada equipe tem duas (2) timeouts.\n\nPara a FIBA, não há informações específicas fornecidas nos contextos dados sobre os descontos de tempo para 2025-26. Para obter essa informação específica, seria necessário consultar diretamente as regras da FIBA ou um documento específico da FIBA para o ano mencionado."
+      },
+      {
+        "role": "user",
+        "content": "Qual é o art.  1 da F1?"
+      },
+      {
+        "role": "assistant",
+        "content": "Não encontrei essa informação nos meus ficheiros locais."
+      },
+      {
+        "role": "user",
+        "content": "Quandi é que começa a copa do mundo 2026?"
+      },
+      {
+        "role": "assistant",
+        "content": "A Copa do Mundo FIFA de 2026 não tem uma data específica para o início mencionada nos contextos fornecidos. Para obter essa informação, você precisaria consultar diretamente os regulamentos oficiais da competição ou a organização responsável pela realização da Copa do Mundo de 2026."
+      },
+      {
+        "role": "user",
+        "content": "Onde é que vai ser realizada a copa do mundo 2026?"
+      },
+      {
+        "role": "assistant",
+        "content": "A Copa do Mundo FIFA de 2026 será realizada em vários países, incluindo Estados Unidos, México e Canadá."
+      }
+    ]
+  },
+  {
+    "id": 1778178361031,
+    "title": "What are the dimensions of a tennis cour...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What are the dimensions of a tennis court for doubles and singles matches?"
+      },
+      {
+        "role": "assistant",
+        "content": "For doubles matches, the centres of the net posts shall be 3 feet (0.914 m) outside the doubles court on each side. For singles matches, if a singles net is used, the centres of the net posts shall be 3 feet (0.914 m) outside the singles court on each side. If a doubles net is used, then the net shall be supported at a height of 3½ feet (1.07 m) by two singles sticks, with the centres of these sticks also being 3 feet (0.914 m) outside the singles court on each side."
+      },
+      {
+        "role": "user",
+        "content": "What are the specific tyre requirements and compounds for the 2025 season?"
+      },
+      {
+        "role": "assistant",
+        "content": "The specific tyre requirements and compounds for the 2025 Formula 1 season are detailed in Article 30 of the Technical Regulations, but I don't have exact details on the compounds used. For precise information, you should refer to the official 2025 Formula 1 Sporting Regulations document."
+      },
+      {
+        "role": "user",
+        "content": "What are the rules regarding a 'fair catch' and 'intentional grounding' in the 2025 rulebook?"
+      },
+      {
+        "role": "assistant",
+        "content": "Não encontrei essa informação nos meus ficheiros locais."
+      },
+      {
+        "role": "user",
+        "content": "What are the official tournament regulations for the FIFA World Cup 26 regarding player eligibility?"
+      },
+      {
+        "role": "assistant",
+        "content": "Each Participating Member Association shall ensure that all players selected for the FIFA World Cup 26 hold the nationality of their country or territory as represented by the association and are subject to its jurisdiction. All players must be eligible for selection in accordance with the FIFA Statutes, the Regulations Governing the Application of the FIFA Statutes, and other FIFA rules and regulations."
+      },
+      {
+        "role": "user",
+        "content": "What are the key differences in time-outs between the 2025-26 NBA rules and FIBA regulations?"
+      },
+      {
+        "role": "assistant",
+        "content": "Não encontrei essa informação nos meus ficheiros locais."
+      }
+    ]
+  },
+  {
+    "id": 1778178036585,
+    "title": "quando mede um campo de tenis?",
+    "messages": [
+      {
+        "role": "user",
+        "content": "quando mede um campo de tenis?"
+      },
+      {
+        "role": "assistant",
+        "content": "Não encontrei essa informação nos meus ficheiros locais."
+      },
+      {
+        "role": "user",
+        "content": "quanto mede um campo de tenis?"
+      },
+      {
+        "role": "assistant",
+        "content": "Não encontrei essa informação nos meus ficheiros locais."
+      }
+    ]
+  },
+  {
+    "id": 1778178016958,
+    "title": "Dá-me as medidas exatas do campo de téni...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Dá-me as medidas exatas do campo de ténis de acordo com os documentos locais."
+      },
+      {
+        "role": "assistant",
+        "content": "21 feet (6.40 m) between the baselines and the backstops  \n12 feet (3.66 m) between the sidelines and the sidestops  \nRecommended minimum height measured at the net from the court surface to the ceiling is 29.6 feet (9.0 m)"
+      }
+    ]
+  },
+  {
+    "id": 1778177812977,
+    "title": "como é o campo de tenis??",
+    "messages": [
+      {
+        "role": "user",
+        "content": "como é o campo de tenis??"
+      },
+      {
+        "role": "assistant",
+        "content": "Não encontrei essa informação nos meus ficheiros locais."
+      }
+    ]
+  },
+  {
+    "id": 1778177558812,
+    "title": "Quais as mudanças nas regras da F1 para ...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Quais as mudanças nas regras da F1 para 2025?"
+      },
+      {
+        "role": "assistant",
+        "content": "Não encontrei essa informação nos meus ficheiros locais."
+      },
+      {
+        "role": "user",
+        "content": "A copa do mundo da fifa aconetec quando??"
+      },
+      {
+        "role": "assistant",
+        "content": "Não encontrei essa informação nos meus ficheiros locais."
+      },
+      {
+        "role": "user",
+        "content": "Regras do futebol"
+      },
+      {
+        "role": "assistant",
+        "content": "1. Cada equipe tem 11 jogadores em campo.\n2. Duração do jogo: 2 tempos de 45 minutos.\n3. A bola entra na baliza = golo (1 ponto)."
+      }
+    ]
+  },
+  {
+    "id": 1778177231214,
+    "title": "Quais são as principais regras do basque...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Quais são as principais regras do basquetebol na NBA e na FIBA?"
+      },
+      {
+        "role": "assistant",
+        "content": "Na NBA, há duas equipes com cinco jogadores cada, jogo dura em quatro períodos de 12 minutos cada, e pontuação é feita com cestos valendo 2 pontos, lançamentos de três pontos valendo 3 pontos, e lances livres valendo 1 ponto. Na FIBA, o jogo também tem duas equipes com cinco jogadores cada, mas dura em quatro períodos de 10 minutos cada."
+      }
+    ]
+  },
+  {
+    "id": 1778177199107,
+    "title": "Qaundo é que occore a copa do mundo dest...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Qaundo é que occore a copa do mundo deste ano?"
+      },
+      {
+        "role": "assistant",
+        "content": "Não encontrei essa informação nos meus ficheiros locais."
+      },
+      {
+        "role": "user",
+        "content": "Quais sao so vencedores das oliempiadas"
+      },
+      {
+        "role": "assistant",
+        "content": "Não encontrei essa informação nos meus ficheiros locais."
+      }
+    ]
+  },
+  {
+    "id": 1778176595025,
+    "title": "Qual foi o record do usain bolt?",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Qual foi o record do usain bolt?"
+      },
+      {
+        "role": "assistant",
+        "content": "O recorde mundial de Usain Bolt no atletismo é 9.58s, obtido na prova de 100 metros rasos."
+      },
+      {
+        "role": "user",
+        "content": "quais sao os vencedores das oliempiedas?"
+      },
+      {
+        "role": "assistant",
+        "content": "Não encontrei essa informação nos meus ficheiros locais."
+      },
+      {
+        "role": "user",
+        "content": "quando é que começa a copa de 2026?"
+      },
+      {
+        "role": "assistant",
+        "content": "Não encontrei essa informação nos meus ficheiros locais."
+      },
+      {
+        "role": "user",
+        "content": "Qual a regumentação da fifa para a copa deste ano?"
+      },
+      {
+        "role": "assistant",
+        "content": "OFFICIAL REGULATIONS (Soccer):\n1. Cada equipa tem 11 jogadores em campo.\n2. Duração do jogo: 2 tempos de 45 minutos.\n3. A bola entra na baliza = golo (1 ponto)."
+      }
+    ]
+  },
+  {
+    "id": 1778176423967,
+    "title": "Sabes as regras para a copa d emudno de ...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Sabes as regras para a copa d emudno de futebol de 2026?"
+      },
+      {
+        "role": "assistant",
+        "content": "⚠️ Não foi possível conectar ao Ollama. Certifica-te de que o Ollama está a correr em `http://127.0.0.1:11434`."
+      },
+      {
+        "role": "user",
+        "content": "Sabes as regras para a copa d emudno de futebol de 2026?"
+      },
+      {
+        "role": "assistant",
+        "content": "Não encontrei essa informação nos meus ficheiros locais."
+      },
+      {
+        "role": "user",
+        "content": "quem é que sao os vencedores olimpicos?"
+      },
+      {
+        "role": "assistant",
+        "content": "Não encontrei essa informação nos meus ficheiros locais."
+      }
+    ]
+  },
+  {
+    "id": 1778152233717,
+    "title": "Explica o significado das bandeiras e os...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Explica o significado das bandeiras e os tipos de pneus usados na Fórmula 1."
+      },
+      {
+        "role": "assistant",
+        "content": "Na Fórmula 1, a bandeira vermelha é suspensa quando há perigo iminente ou condições meteorológicas severas que colocam em risco a segurança dos pilotos.\n\nOs pneus na F1 são classificados em três tipos para piso seco (Macio, Médio, Duro) e dois para piso molhado (Intermédio, Chuva Extrema). Cada piloto precisa usar pelo menos dois compostos diferentes de pneus de piso seco em uma corrida, exceto quando chove."
+      }
+    ]
+  },
+  {
+    "id": 1778152098034,
+    "title": "Quais são as principais regras do basque...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Quais são as principais regras do basquetebol na NBA e na FIBA?"
+      },
+      {
+        "role": "assistant",
+        "content": "Na NBA, um jogo tem 4 períodos de 12 minutos cada, enquanto na FIBA são 4 períodos de 10 minutos. O objetivo é marcar pontos inserindo a bola no cesto da equipa adversária. Lances livres valem 1 ponto, lançamentos dentro do arco valem 2 pontos e lançamentos além do arco valem 3 pontos. Um jogador é expulso após 6 faltas pessoais na NBA ou 5 na FIBA. Uma equipa tem 24 segundos para tentar um lançamento que toque no aro."
+      }
+    ]
+  },
+  {
+    "id": 1778151234377,
+    "title": "Explica o significado das bandeiras e os...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Explica o significado das bandeiras e os tipos de pneus usados na Fórmula 1."
+      },
+      {
+        "role": "assistant",
+        "content": "⚠️ Erro ao comunicar com o Ollama: 404 Client Error: Not Found for url: http://127.0.0.1:11434/v1/chat/completions"
+      }
+    ]
+  },
+  {
+    "id": 1778151224625,
+    "title": "Quais são as principais regras do basque...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Quais são as principais regras do basquetebol na NBA e na FIBA?"
+      },
+      {
+        "role": "assistant",
+        "content": "⚠️ Erro ao comunicar com o Ollama: 404 Client Error: Not Found for url: http://127.0.0.1:11434/v1/chat/completions"
+      }
+    ]
+  },
+  {
+    "id": 1778114399306,
+    "title": "Explica o significado das bandeiras e os...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Explica o significado das bandeiras e os tipos de pneus usados na Fórmula 1."
+      },
+      {
+        "role": "assistant",
+        "content": "⚠️ Erro ao comunicar com o Ollama: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=120)"
+      }
+    ]
+  },
+  {
+    "id": 1778114206309,
+    "title": "O que ",
+    "messages": [
+      {
+        "role": "user",
+        "content": "O que "
+      },
+      {
+        "role": "user",
+        "content": " e a Formula 1?"
+      },
+      {
+        "role": "assistant",
+        "content": "⚠️ Erro ao comunicar com o Ollama: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=120)"
+      }
+    ]
+  },
+  {
+    "id": 1778113839034,
+    "title": "Podes explicar-me como funcionam os torn...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Podes explicar-me como funcionam os torneios de Grand Slam no Ténis?"
+      }
+    ]
+  },
+  {
+    "id": 1778113347400,
+    "title": "Quais são as principais regras do basque...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Quais são as principais regras do basquetebol na NBA e na FIBA?"
+      },
+      {
+        "role": "assistant",
+        "content": "⚠️ Erro ao comunicar com o Ollama: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=120)"
+      }
+    ]
+  },
+  {
+    "id": 1778112875514,
+    "title": "Quais são as principais regras do basque...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Quais são as principais regras do basquetebol na NBA e na FIBA?"
+      }
+    ]
+  },
+  {
+    "id": 1778112534515,
+    "title": "Show me the upcoming major football even...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Show me the upcoming major football events this week and what to watch for"
+      }
+    ]
+  },
+  {
+    "id": 1778112381436,
+    "title": "quais squais sao as regras do futebol?",
+    "messages": [
+      {
+        "role": "user",
+        "content": "quais squais sao as regras do futebol?"
+      },
+      {
+        "role": "assistant",
+        "content": "As principais regras do futebol são:\n\n- Cada equipe tem 11 jogadores em campo.\n- O jogo dura 2 tempos de 45 minutos cada.\n- A bola entra na baliza resulta num gol (1 ponto).\n- Outras informações importantes estão disponíveis no LOCAL_DOCS_PATH, mas não podem ser acessadas diretamente aqui."
+      }
+    ]
+  },
+  {
+    "id": 1778112115301,
+    "title": "quais s",
+    "messages": [
+      {
+        "role": "user",
+        "content": "quais s"
+      },
+      {
+        "role": "user",
+        "content": "quais sao as regras do basquetebol?"
+      },
+      {
+        "role": "assistant",
+        "content": "As principais regras do basquetebol sÃ£o:\n\n- Duas equipas de 5 jogadores cada.\n- DuraÃ§Ã£o: 4 perÃ­odos de 12 minutos (NBA) ou 10 minutos (FIBA).\n- PontuaÃ§Ã£o: Cesto = 2 pontos; lanÃ§amento de 3 pontos = 3 pontos; lanÃ§amento livre = 1 ponto.\n\nPara mais detalhes, consulte o documento \"basketball_nba.txt\" localizado em LOCAL_DOCS_PATH."
+      }
+    ]
+  }
+]

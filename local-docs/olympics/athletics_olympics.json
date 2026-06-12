@@ -1,0 +1,49 @@
+{
+  "desporto": "Atletismo",
+  "descricao": "O atletismo é um conjunto de desportos constituído por corrida, marcha, lançamentos e saltos. É o principal desporto dos Jogos Olímpicos.",
+  "eventos_principais": [
+    {
+      "nome": "100 metros rasos",
+      "categoria": "Velocidade",
+      "recorde_mundial_masculino": {
+        "atleta": "Usain Bolt",
+        "nacionalidade": "Jamaica",
+        "tempo": "9.58s",
+        "ano": 2009
+      },
+      "recorde_mundial_feminino": {
+        "atleta": "Florence Griffith-Joyner",
+        "nacionalidade": "EUA",
+        "tempo": "10.49s",
+        "ano": 1988
+      }
+    },
+    {
+      "nome": "Maratona",
+      "categoria": "Fundo",
+      "distancia": "42.195 km",
+      "recorde_mundial_masculino": {
+        "atleta": "Kelvin Kiptum",
+        "nacionalidade": "Quénia",
+        "tempo": "2:00:35",
+        "ano": 2023
+      }
+    },
+    {
+      "nome": "Salto em Altura",
+      "categoria": "Saltos",
+      "recorde_mundial_masculino": {
+        "atleta": "Javier Sotomayor",
+        "nacionalidade": "Cuba",
+        "marca": "2.45m",
+        "ano": 1993
+      }
+    }
+  ],
+  "regulamentos_basicos": [
+    "Numa corrida de velocidade (até 400m), o atleta não pode pisar a linha da pista ou invadir a pista do adversário.",
+    "Numa corrida, dois falsos arranques resultam na desqualificação imediata do atleta.",
+    "No salto em comprimento, o atleta não pode pisar a linha limite da tábua de chamada antes do salto.",
+    "O dardo deve aterrar com a ponta metálica primeiro dentro do setor marcado para ser considerado um lançamento válido."
+  ]
+}

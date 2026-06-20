@@ -713,7 +713,7 @@ def stream_ollama_response(system_prompt: str, messages: list[dict]):
 # ---------------------------------------------------------------------------
 
 def load_logo_as_base64() -> str | None:
-    logo_path = Path(__file__).parent / "public" / "sport.png"
+    logo_path = Path(__file__).parent / "public" / "SportSphere.png"
     if logo_path.exists():
         data = logo_path.read_bytes()
         return base64.b64encode(data).decode("utf-8")
@@ -818,6 +818,20 @@ def render_architecture_tab():
         st.markdown("**💾 Persistência**  \nHistórico guardado em `chat_history.json` entre sessões")
 
 
+def check_model_status() -> bool:
+    """Check if the Ollama model is reachable. Returns True if online."""
+    try:
+        resp = requests.get(f"{OLLAMA_BASE_URL}/api/tags", timeout=2)
+        if resp.status_code == 200:
+            data = resp.json()
+            models = [m.get("name", "") for m in data.get("models", [])]
+            base_name = OLLAMA_MODEL.split(":")[0]
+            return any(OLLAMA_MODEL in m or base_name in m for m in models)
+        return False
+    except Exception:
+        return False
+
+
 def main():
     st.set_page_config(
         page_title="SportSphere",
@@ -864,8 +878,8 @@ def main():
 
         /* ── Sidebar ── */
         section[data-testid="stSidebar"] {
-            background-color: #fafafa;
-            border-right: 1px solid #e5e5e5;
+            background: linear-gradient(180deg, #f8f8f8 0%, #f4f4f4 100%);
+            border-right: 1px solid #e8e8e8;
             width: 260px !important;
             min-width: 260px !important;
             max-width: 260px !important;
@@ -886,54 +900,114 @@ def main():
             z-index: 999999 !important;
         }
 
-        section[data-testid="stSidebar"] .new-chat-sidebar button {
-            border: 1px solid #e0e0e0 !important;
-            border-radius: 8px !important;
-            background: white !important;
-            color: #333 !important;
-            font-size: 0.85rem !important;
-            padding: 8px 16px !important;
+        /* ═══════════════════════════════════════════════════════════
+           SIDEBAR BUTTONS — base class
+           Estilo comum a TODOS os botões da sidebar (todos os
+           containers cuja key comece por "sb_"). Para mudar algo em
+           todos de uma vez, edita aqui. Cada variante abaixo só
+           define o que a torna diferente das outras.
+           ═══════════════════════════════════════════════════════════ */
+        section[data-testid="stSidebar"] [class*="st-key-sb_"] button {
+            border-radius: 10px !important;
             cursor: pointer !important;
-            transition: background 0.2s, border-color 0.2s !important;
+            transition: background 0.18s, box-shadow 0.18s, color 0.15s !important;
+            box-shadow: none !important;
         }
 
-        section[data-testid="stSidebar"] .new-chat-sidebar button:hover {
-            background: #f5f5f5 !important;
-            border-color: #ccc !important;
+        /* ── New Chat button ── */
+        section[data-testid="stSidebar"] [class*="st-key-sb_new_chat"] button {
+            border: 1px solid #e0e0e0 !important;
+            background: white !important;
+            color: #1a1a1a !important;
+            font-size: 0.875rem !important;
+            font-weight: 500 !important;
+            padding: 10px 16px !important;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06) !important;
         }
 
-        .chat-history-title {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: #999;
+        section[data-testid="stSidebar"] [class*="st-key-sb_new_chat"] button:hover {
+            background: #f7f7f7 !important;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1) !important;
+        }
+
+        /* ── Arch button ── */
+        [class*="st-key-sb_arch"] button {
+            border: 1px solid #e8e8e8 !important;
+            background: #fafafa !important;
+            color: #555 !important;
+            font-size: 0.8rem !important;
+            font-weight: 500 !important;
+            padding: 8px 16px !important;
+        }
+
+        [class*="st-key-sb_arch"] button:hover {
+            background: #f0f0f0 !important;
+            color: #333 !important;
+        }
+
+        /* ── History label ── */
+        .history-label {
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: #b8b8b8;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin: 1.2rem 0 0.5rem 0;
-            padding: 0 4px;
+            letter-spacing: 0.1em;
         }
 
-        .chat-history-item button {
-            width: 100%;
+        /* ── Load chat button (inactive + active) ── */
+        [class*="st-key-sb_loadinact_"] button,
+        [class*="st-key-sb_loadact_"] button {
+            width: 100% !important;
             text-align: left !important;
             border: none !important;
-            border-radius: 8px !important;
-            padding: 8px 12px !important;
+            border-radius: 7px !important;
+            padding: 7px 10px !important;
             background: transparent !important;
-            color: #555 !important;
-            font-size: 0.85rem !important;
-            cursor: pointer !important;
-            transition: background 0.15s !important;
+            color: #4a4a4a !important;
+            font-size: 0.82rem !important;
+            font-weight: 400 !important;
             white-space: nowrap !important;
             overflow: hidden !important;
             text-overflow: ellipsis !important;
+            line-height: 1.35 !important;
         }
 
-        .chat-history-item button:hover { background: #eeeeee !important; }
+        [class*="st-key-sb_loadinact_"] button:hover { background: #f0f0f0 !important; }
 
-        .chat-history-item-active button {
+        [class*="st-key-sb_loadact_"] button {
             background: #e8e8e8 !important;
-            color: #333 !important;
-            font-weight: 500 !important;
+            color: #111 !important;
+            font-weight: 600 !important;
+        }
+
+        [class*="st-key-sb_loadact_"] button:hover { background: #e2e2e2 !important; }
+
+        /* ── Delete button ── */
+        [class*="st-key-sb_del_"] button {
+            background: transparent !important;
+            border: none !important;
+            border-radius: 5px !important;
+            color: #d0d0d0 !important;
+            font-size: 0.7rem !important;
+            padding: 6px 4px !important;
+            min-width: 0 !important;
+            width: 100% !important;
+        }
+
+        [class*="st-key-sb_del_"] button:hover {
+            color: #ef4444 !important;
+            background: rgba(239,68,68,0.07) !important;
+        }
+
+        /* ── Remove gap between columns in sidebar history rows ── */
+        section[data-testid="stSidebar"] [data-testid="column"] {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+
+        section[data-testid="stSidebar"] [data-testid="stHorizontalBlock"] {
+            gap: 0 !important;
+            margin-bottom: 1px !important;
         }
 
         .overview-container {
@@ -941,30 +1015,30 @@ def main():
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 2rem 1rem;
-            margin-top: 2rem;
+            padding: 3rem 1rem 1.5rem;
             margin-left: auto;
             margin-right: auto;
             width: 100%;
-            max-width: 700px;
+            max-width: 680px;
         }
 
         .overview-container img {
-            max-width: 350px;
+            max-width: 510px;
             height: auto;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
+            filter: drop-shadow(0 4px 12px rgba(79,70,229,0.12));
         }
 
         .overview-text {
             text-align: center;
-            color: #555;
-            font-size: 1rem;
-            line-height: 1.6;
-            max-width: 550px;
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.65;
+            max-width: 500px;
             margin: 0 auto;
         }
 
-        .overview-text p { margin-bottom: 0.8rem; }
+        .overview-text p { margin-bottom: 0.6rem; }
 
         /* Center suggestion buttons container */
         [data-testid="column"] {
@@ -975,35 +1049,49 @@ def main():
             text-align: center;
         }
 
-        .suggestion-btn button {
+        /* ═══════════════════════════════════════════════════════════
+           CENTER PANEL BUTTONS — base class
+           Estilo comum a TODOS os botões do painel central.
+           Para mudar algo em todos de uma vez, edita aqui.
+           As variantes (ex: .suggestion-btn) só definem o que as
+           torna diferentes umas das outras.
+           ═══════════════════════════════════════════════════════════ */
+        /* ═══════════════════════════════════════════════════════════
+           CENTER PANEL BUTTONS — base class
+           Estilo comum a TODOS os botões do painel central (todos
+           os containers cuja key comece por "cb_"). Para mudar algo
+           em todos de uma vez, edita aqui. As variantes (ex:
+           "cb_suggestion_") só definem o que as torna diferentes.
+           ═══════════════════════════════════════════════════════════ */
+        [class*="st-key-cb_"] button {
+            border-radius: 14px !important;
+            cursor: pointer !important;
+            transition: all 0.18s ease !important;
+        }
+
+        [class*="st-key-cb_suggestion_"] button {
             width: 100%;
             text-align: left !important;
-            border: 1px solid #e5e5e5 !important;
-            border-radius: 12px !important;
-            padding: 14px 16px !important;
+            border: 1px solid #ebebeb !important;
+            padding: 16px 18px !important;
             background: white !important;
-            color: #333 !important;
-            font-size: 0.9rem !important;
-            cursor: pointer !important;
-            transition: background 0.2s, border-color 0.2s !important;
+            color: #222 !important;
+            font-size: 0.875rem !important;
             height: auto !important;
-            min-height: 60px !important;
-            margin: 8px auto !important;
+            min-height: 68px !important;
+            margin: 5px 0 !important;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05) !important;
+            line-height: 1.4 !important;
         }
 
-        .suggestion-btn button:hover {
-            background: #f9f9f9 !important;
-            border-color: #ccc !important;
+        [class*="st-key-cb_suggestion_"] button:hover {
+            background: #fafafe !important;
+            border-color: #c5c3f5 !important;
+            box-shadow: 0 3px 12px rgba(79,70,229,0.1) !important;
+            transform: translateY(-1px) !important;
         }
 
-        .suggestion-btn {
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            align-items: stretch;
-        }
-
-        .suggestion-btn button p {
+        [class*="st-key-cb_suggestion_"] button p {
             margin: 0 !important;
             text-align: left !important;
         }
@@ -1087,15 +1175,53 @@ def main():
             transform: scale(1.05) !important;
         }
 
-        /* Fix tab clickability issue when chat_input is present */
-        [data-testid="stTabs"] [role="tablist"] {
-            position: relative;
-            z-index: 999999 !important;
+        /* Model status badge — top right */
+        .model-status-badge {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            z-index: 9999999;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.92);
+            border: 1px solid #e5e5e5;
+            border-radius: 20px;
+            padding: 4px 12px 4px 8px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: #444;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+            pointer-events: none;
+            user-select: none;
         }
+
+        .model-status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .model-status-dot.online  { background: #22c55e; box-shadow: 0 0 0 2px rgba(34,197,94,0.25); }
+        .model-status-dot.offline { background: #ef4444; box-shadow: 0 0 0 2px rgba(239,68,68,0.25); }
+
+
     </style>
     """, unsafe_allow_html=True)
 
-
+    # ---- Model status badge (top-right) ----
+    model_online = check_model_status()
+    dot_class = "online" if model_online else "offline"
+    status_label = f"{OLLAMA_MODEL} — disponível" if model_online else f"{OLLAMA_MODEL} — indisponível"
+    st.markdown(
+        f'<div class="model-status-badge">'
+        f'<span class="model-status-dot {dot_class}"></span>'
+        f'{status_label}'
+        f'</div>',
+        unsafe_allow_html=True,
+    )
 
     # ---- Persistent Memory ----
     CHAT_HISTORY_FILE = Path("chat_history.json")
@@ -1153,35 +1279,67 @@ def main():
             "messages": list(st.session_state.messages),
         })
         st.session_state.current_chat_id = new_id
+        # Keep only the 10 most recent chats
+        st.session_state.chat_history = st.session_state.chat_history[:10]
         _save_history_to_disk(st.session_state.chat_history)
 
-    # ---- Sidebar ----
-    with st.sidebar:
-        st.markdown('<div class="new-chat-sidebar">', unsafe_allow_html=True)
-        if st.button("＋ New Chat", key="new_chat_btn", use_container_width=True):
-            _save_current_chat()
+    def _delete_chat(chat_id: int):
+        st.session_state.chat_history = [
+            c for c in st.session_state.chat_history if c["id"] != chat_id
+        ]
+        _save_history_to_disk(st.session_state.chat_history)
+        if st.session_state.current_chat_id == chat_id:
             st.session_state.messages = []
             st.session_state.current_chat_id = None
-            st.rerun()
-        st.markdown('</div>', unsafe_allow_html=True)
 
-        if st.session_state.chat_history:
-            st.markdown('<div class="chat-history-title">Histórico</div>', unsafe_allow_html=True)
-            for chat in st.session_state.chat_history:
+    # ---- Sidebar ----
+    # Track architecture view in session state
+    if "show_architecture" not in st.session_state:
+        st.session_state.show_architecture = False
+
+    with st.sidebar:
+        with st.container(key="sb_new_chat"):
+            if st.button("＋ New Chat", key="new_chat_btn", use_container_width=True):
+                _save_current_chat()
+                st.session_state.messages = []
+                st.session_state.current_chat_id = None
+                st.session_state.show_architecture = False
+                st.rerun()
+
+        with st.container(key="sb_arch"):
+            if st.button("⚙️ Arquitetura", key="arch_btn", use_container_width=True):
+                st.session_state.show_architecture = not st.session_state.show_architecture
+                st.rerun()
+
+        recent_chats = st.session_state.chat_history[:10]
+        if recent_chats:
+            st.markdown('<div class="history-label" style="margin-top:1.2rem;margin-bottom:4px;">Histórico</div>', unsafe_allow_html=True)
+            for chat in recent_chats:
                 is_active = chat["id"] == st.session_state.current_chat_id
-                css_class = "chat-history-item-active" if is_active else "chat-history-item"
-                st.markdown(f'<div class="{css_class}">', unsafe_allow_html=True)
-                if st.button(chat["title"], key=f"chat_hist_{chat['id']}", use_container_width=True):
-                    _save_current_chat()
-                    st.session_state.messages = list(chat["messages"])
-                    st.session_state.current_chat_id = chat["id"]
-                    st.rerun()
-                st.markdown('</div>', unsafe_allow_html=True)
+                # Wrap each row in a real container so the CSS selectors below
+                # (which target descendant buttons) actually nest correctly.
+                with st.container(key=f"sb_row_{chat['id']}"):
+                    col_t, col_d = st.columns([10, 1], gap="small")
+                    with col_t:
+                        load_key = f"sb_loadact_{chat['id']}" if is_active else f"sb_loadinact_{chat['id']}"
+                        with st.container(key=load_key):
+                            if st.button(chat["title"], key=f"chat_hist_{chat['id']}", use_container_width=True):
+                                _save_current_chat()
+                                st.session_state.messages = list(chat["messages"])
+                                st.session_state.current_chat_id = chat["id"]
+                                st.session_state.show_architecture = False
+                                st.rerun()
+                    with col_d:
+                        with st.container(key=f"sb_del_{chat['id']}"):
+                            if st.button("✕", key=f"del_{chat['id']}"):
+                                _delete_chat(chat["id"])
+                                st.rerun()
 
-    # ---- Create Tabs for Chat and Architecture ----
-    tab_chat, tab_architecture = st.tabs(["💬 Chat", "⚙️ Arquitetura"])
 
-    with tab_chat:
+    # ---- Main content (no tabs) ----
+    if st.session_state.get("show_architecture"):
+        render_architecture_tab()
+    else:
         col_left, col_center, col_right = st.columns([0.5, 2, 0.5])
         with col_center:
             if not st.session_state.messages:
@@ -1216,15 +1374,14 @@ def main():
                 for i, action in enumerate(suggested_actions):
                     target_col = col1 if i % 2 == 0 else col2
                     with target_col:
-                        st.markdown('<div class="suggestion-btn">', unsafe_allow_html=True)
-                        if st.button(
-                            f"**{action['title']}**\n\n{action['label']}",
-                            key=f"suggestion_{i}",
-                            use_container_width=True,
-                        ):
-                            st.session_state.messages.append({"role": "user", "content": action["action"]})
-                            st.rerun()
-                        st.markdown('</div>', unsafe_allow_html=True)
+                        with st.container(key=f"cb_suggestion_{i}"):
+                            if st.button(
+                                f"**{action['title']}**\n\n{action['label']}",
+                                key=f"suggestion_{i}",
+                                use_container_width=True,
+                            ):
+                                st.session_state.messages.append({"role": "user", "content": action["action"]})
+                                st.rerun()
 
             for msg in st.session_state.messages:
                 with st.chat_message(msg["role"]):
@@ -1258,10 +1415,10 @@ def main():
             accept_file=True,
             file_type=["pdf", "docx", "txt", "md", "csv", "png", "jpg", "jpeg", "gif", "bmp", "tiff"],
         )
-
+    
         if user_input_obj:
             user_text = user_input_obj.text if user_input_obj.text else ""
-
+    
             if getattr(user_input_obj, "files", None):
                 uploaded_file = user_input_obj.files[0]
                 extracted = extract_text_from_upload(uploaded_file)
@@ -1270,14 +1427,11 @@ def main():
                 st.success(f"Ficheiro '{uploaded_file.name}' anexado ao contexto!")
                 if not user_text:
                     user_text = "Acabei de anexar um ficheiro. Por favor, lê e confirma se está tudo bem."
-
+    
             if user_text:
                 st.session_state.messages.append({"role": "user", "content": user_text})
                 st.rerun()
-
-    with tab_architecture:
-        render_architecture_tab()
-
+    
 
 if __name__ == "__main__":
     main()

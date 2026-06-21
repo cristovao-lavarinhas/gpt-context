@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Node / Frontend
+node_modules/
+dist/
+.vite/
+
+# Dados locais
+backend/chat_history.json
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

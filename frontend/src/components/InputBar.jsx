@@ -5,6 +5,7 @@ export default function InputBar({
   isStreaming,
   uploadedFileName,
   onSend,
+  onStop,
   onAttach,
   onRemoveAttachment,
   autoFocus = false,
@@ -24,9 +25,10 @@ export default function InputBar({
     <form className="input-bar" onSubmit={handleSubmit}>
       {uploadedFileName && (
         <div className="attachment-pill">
-          📎 {uploadedFileName}
+          <span className="material-symbols-outlined" style={{ fontSize: "14px" }}>attach_file</span>
+          {uploadedFileName}
           <button type="button" className="attachment-remove" onClick={onRemoveAttachment}>
-            ✕
+            <span className="material-symbols-outlined" style={{ fontSize: "12px" }}>close</span>
           </button>
         </div>
       )}
@@ -38,7 +40,7 @@ export default function InputBar({
           aria-label="Anexar ficheiro"
           title="Anexar ficheiro"
         >
-          📎
+          <span className="material-symbols-outlined">attach_file</span>
         </button>
         <input
           ref={fileInputRef}
@@ -56,9 +58,21 @@ export default function InputBar({
           onChange={(e) => setInput(e.target.value)}
           autoFocus={autoFocus}
         />
-        <button className="ib-btn send-btn" type="submit" disabled={isStreaming || !input.trim()} aria-label="Enviar">
-          ↑
-        </button>
+        {isStreaming ? (
+          <button
+            type="button"
+            className="ib-btn send-btn stop-btn"
+            onClick={onStop}
+            aria-label="Parar geração"
+            title="Parar"
+          >
+            <span className="material-symbols-outlined">stop</span>
+          </button>
+        ) : (
+          <button className="ib-btn send-btn" type="submit" disabled={!input.trim()} aria-label="Enviar">
+            <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>arrow_upward</span>
+          </button>
+        )}
       </div>
     </form>
   );

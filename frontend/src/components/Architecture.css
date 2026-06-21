@@ -1,0 +1,242 @@
+.architecture {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+}
+
+.arch-back {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 6px 0;
+  margin-bottom: 24px;
+  transition: color 0.15s ease;
+}
+
+.arch-back:hover {
+  color: var(--accent);
+}
+
+.arch-header {
+  margin-bottom: 32px;
+}
+
+.arch-header h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.9rem;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 8px;
+}
+
+.arch-header h1 .material-symbols-outlined {
+  font-size: 1.7rem;
+  color: var(--accent);
+}
+
+.arch-header p {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+.arch-section {
+  margin-bottom: 36px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+}
+
+.arch-section:last-child {
+  border-bottom: none;
+}
+
+.arch-section-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 18px;
+}
+
+.arch-section-title .material-symbols-outlined {
+  color: var(--accent);
+}
+
+.arch-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.arch-grid-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.arch-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.arch-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 760px) {
+  .arch-grid-2,
+  .arch-grid-3,
+  .arch-grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.arch-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+}
+
+.arch-card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.arch-card-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.arch-card-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--ink);
+  margin: 0;
+}
+
+.arch-card-body p,
+.arch-card-body ul,
+.arch-card-body ol {
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.arch-card-body ul,
+.arch-card-body ol {
+  padding-left: 18px;
+}
+
+.arch-card-body li {
+  margin-bottom: 4px;
+}
+
+.arch-card-body code {
+  background: var(--panel-raised);
+  color: var(--accent);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+.arch-card-label {
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.arch-tech-stack {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+}
+
+.arch-tech-col-title {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin: 0 0 8px;
+}
+
+.arch-tech-stack p {
+  color: var(--ink);
+  font-size: 0.85rem;
+  margin: 0 0 4px;
+}
+
+.arch-intro-text {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  max-width: 720px;
+  margin: 0 0 22px;
+}
+
+.arch-intro-text strong {
+  color: var(--ink);
+}
+
+.arch-flow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.arch-flow-node {
+  flex: 1;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-align: left;
+}
+
+.arch-flow-node .material-symbols-outlined {
+  color: var(--accent);
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.arch-flow-node small {
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 0.72rem;
+}
+
+.arch-flow-arrow {
+  color: var(--muted);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}

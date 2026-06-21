@@ -414,11 +414,10 @@ def translate_query_for_rag(user_query: str) -> str:
 # System prompt construction
 # ---------------------------------------------------------------------------
 
-
 def build_system_prompt(
     user_message: str, uploaded_file_content: str = ""
-) -> tuple[str, list[str], list[str]]:
-    """Returns (system_prompt, active_folder_scope, used_sources)."""
+) -> tuple[str, list[str], list[str], list[dict]]:
+    """Returns (system_prompt, active_folder_scope, used_sources, source_excerpts)."""
     league = _detect_sport(user_message)
     regulations = SPORTS_REGULATIONS.get(league["name"], []) if league else []
 
@@ -431,8 +430,18 @@ def build_system_prompt(
 
     rag_chunks = get_local_rag_context(user_message, max_chunks=10, subfolders=scoped_folders)
 
-    # Files actually used to answer this question, e.g. ["soccer/regras.pdf"]
     used_sources = sorted({c["source"] for c in rag_chunks})
+
+    # Excertos usados, deduplicados por ficheiro, para mostrar na UI ("ver fontes").
+    seen_sources: set[str] = set()
+    source_excerpts: list[dict] = []
+    for c in rag_chunks:
+        if c["source"] in seen_sources:
+            continue
+        seen_sources.add(c["source"])
+        source_excerpts.append({"source": c["source"], "text": _trim_text(c["text"], 320)})
+        if len(source_excerpts) >= 6:
+            break
 
     if rag_chunks:
         rag_block = "\n\nLOCAL DOCUMENT CONTEXT (RAG):\n" + "\n".join(
@@ -485,8 +494,7 @@ RULES:
 CONTEXT DATA:
 {rag_block}{upload_block}{reg_snippet}"""
 
-    return system_prompt, scoped_folders, used_sources
-
+    return system_prompt, scoped_folders, used_sources, source_excerpts
 
 # ---------------------------------------------------------------------------
 # Ollama streaming call
@@ -541,3 +549,7 @@ def check_model_status() -> bool:
         return resp.status_code == 200
     except Exception:
         return False
+    
+def invalidate_index_cache() -> None:
+    """Clear the local-docs index cache so newly added/removed files are picked up immediately."""
+    _INDEX_CACHE.clear()

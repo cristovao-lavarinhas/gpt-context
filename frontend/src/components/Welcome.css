@@ -1,51 +1,53 @@
 .welcome {
-  max-width: 640px;
+  max-width: 680px;
   margin: 0 auto;
-  padding: 64px 24px 32px;
-  text-align: center;
+  min-height: 100%;
+  padding: 56px 24px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.welcome-content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .welcome-mark {
-  width: 510px;
-  height: 162px;
+  width: 100%;
+  max-width: 460px;
+  height: auto;
   object-fit: contain;
-  margin-bottom: 18px;
-}
-
-.welcome-title {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 2rem;
-  letter-spacing: -0.02em;
-  margin: 0 0 14px;
+  margin-bottom: 32px;
 }
 
 .welcome-lead {
-  color: var(--ink);
-  font-size: 0.98rem;
-  line-height: 1.55;
-  margin: 0 0 10px;
-}
-
-.welcome-sub {
   color: var(--muted);
-  font-size: 0.88rem;
-  line-height: 1.55;
-  margin: 0 0 28px;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 540px;
+  margin: 0 0 36px;
 }
 
-.welcome-input {
+.welcome-kb-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 14px;
+  margin-bottom: 18px;
   width: 100%;
-  margin-bottom: 28px;
 }
 
 .suggestion-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 14px;
   width: 100%;
 }
 
@@ -55,41 +57,55 @@
   }
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   BASE CLASS — applies to every center-panel button.
-   Edit here to change something across all of them at once.
-   ═══════════════════════════════════════════════════════════════ */
 .ctr-btn {
   border-radius: var(--radius-lg);
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.15s ease;
 }
 
-/* ── Suggestion card (variant) ── */
 .suggestion-card {
   background: var(--panel);
   border: 1px solid var(--border);
-  padding: 16px 18px;
-  text-align: left;
+  padding: 20px 18px;
   display: flex;
   flex-direction: column;
-  gap: 3px;
-  box-shadow: 0 1px 3px rgba(20, 23, 35, 0.04);
+  align-items: center;
+  text-align: center;
+  gap: 6px;
 }
 
 .suggestion-card:hover {
-  border-color: var(--accent-indigo);
-  box-shadow: 0 6px 18px rgba(79, 70, 229, 0.12);
-  transform: translateY(-1px);
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 6%, var(--panel));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--accent-glow);
+}
+
+.suggestion-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
 }
 
 .suggestion-title {
+  font-family: var(--font-display);
   font-weight: 700;
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   color: var(--ink);
 }
 
 .suggestion-label {
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
+}
+
+.welcome-input {
+  width: 100%;
+  padding: 28px 0 18px;
 }

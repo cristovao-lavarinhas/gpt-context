@@ -3,85 +3,70 @@
   color: var(--sidebar-text);
   display: flex;
   flex-direction: column;
-  padding: 20px 14px;
+  padding: 18px 12px;
   height: 100%;
   overflow-y: auto;
+  border-right: 1px solid var(--sidebar-border);
 }
 
 .sidebar-brand {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 4px 6px 22px;
+  padding: 6px 8px 24px;
 }
 
 .sidebar-brand-mark {
-  width: 22px;
-  height: 22px;
-  border-radius: 6px;
-  background: var(--accent-grad);
-  flex-shrink: 0;
+  height: 60px;
+  width: auto;
+  object-fit: contain;
 }
 
-.sidebar-brand-name {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.05rem;
-  color: #f4f5fa;
-  letter-spacing: -0.01em;
-}
-
-.sidebar-brand-accent {
-  background: var(--accent-grad);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   BASE CLASS — applies to every sidebar button.
-   Edit here to change something across all of them at once.
-   Each variant below only overrides what makes it different.
-   ═══════════════════════════════════════════════════════════════ */
 .sb-btn {
   border: none;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   cursor: pointer;
   font-size: 0.86rem;
-  transition: background 0.15s ease, color 0.15s ease;
+  font-family: var(--font-body);
+  transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
   text-align: left;
-}
-
-/* ── New chat ── */
-.new-chat-btn {
-  background: var(--sidebar-bg-raised);
-  color: #f4f5fa;
-  font-weight: 600;
-  padding: 11px 14px;
-  margin-bottom: 18px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  gap: 10px;
+}
+
+.new-chat-btn {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 13px 16px;
+  margin-bottom: 22px;
+  justify-content: center;
+  border-radius: 999px;
+  box-shadow: 0 0 18px var(--accent-glow);
 }
 
 .new-chat-btn:hover {
-  background: #1c212c;
+  background: var(--accent-hover);
+  box-shadow: 0 0 26px var(--accent-glow);
 }
 
 .sb-icon {
-  font-size: 0.95rem;
-  opacity: 0.85;
+  font-size: 1.05rem;
+  flex-shrink: 0;
 }
 
-/* ── Section label ── */
 .sidebar-section-label {
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--sidebar-text-dim);
-  padding: 6px 8px 8px;
+  padding: 4px 10px 10px;
 }
 
 .sidebar-history {
@@ -95,48 +80,52 @@
 .sidebar-empty {
   color: var(--sidebar-text-dim);
   font-size: 0.78rem;
-  padding: 8px;
+  padding: 8px 10px;
 }
 
 .history-row {
   display: grid;
   grid-template-columns: 1fr 26px;
   align-items: center;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
 }
 
 .history-row-active {
   background: var(--sidebar-active);
+  box-shadow: inset 2px 0 0 var(--accent);
 }
 
-/* ── History item (variant) ── */
 .history-btn {
   background: transparent;
-  color: var(--sidebar-text);
+  color: var(--sidebar-text-dim);
   font-weight: 400;
-  padding: 8px 10px;
+  padding: 9px 10px;
   width: 100%;
+  min-width: 0;
+}
+
+.history-btn-label {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .history-row:not(.history-row-active) .history-btn:hover {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--sidebar-text);
 }
 
 .history-row-active .history-btn {
-  color: #ffffff;
+  color: #fff;
   font-weight: 600;
 }
 
-/* ── Delete button (variant) ── */
 .history-delete-btn {
   background: transparent;
   color: var(--sidebar-text-dim);
-  font-size: 0.7rem;
   padding: 8px 0;
   width: 100%;
+  justify-content: center;
 }
 
 .history-delete-btn:hover {
@@ -146,25 +135,50 @@
 
 .sidebar-footer {
   display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 12px;
+  margin-top: 8px;
+  border-top: 1px solid var(--sidebar-border);
+}
+
+.sidebar-footer-link,
+.theme-toggle {
+  background: transparent;
+  color: var(--sidebar-text-dim);
+  font-weight: 500;
+  padding: 10px;
+  width: 100%;
+}
+
+.sidebar-footer-link:hover,
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--sidebar-text);
+}
+
+.sidebar-status {
+  display: flex;
   align-items: center;
   gap: 8px;
-  padding: 14px 8px 4px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  margin-top: 10px;
+  padding: 10px 12px;
+  margin-top: 8px;
+  border-radius: var(--radius-lg);
+  background: var(--sidebar-bg-raised);
   font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--sidebar-text-dim);
+  font-size: 0.66rem;
 }
 
 .status-dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .status-online {
-  background: var(--accent-teal);
-  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.18);
+  background: var(--accent-lime);
+  box-shadow: 0 0 0 3px rgba(195, 244, 0, 0.18);
 }
 
 .status-offline {
@@ -173,8 +187,18 @@
 
 .status-label {
   color: var(--sidebar-text);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .status-state {
   margin-left: auto;
+  color: var(--sidebar-text-dim);
+  text-transform: uppercase;
+}
+
+.sidebar-footer-link-active {
+  background: var(--sidebar-active);
+  color: var(--sidebar-text);
+  box-shadow: inset 2px 0 0 var(--accent);
 }

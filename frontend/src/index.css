@@ -1,29 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Anybody:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap');
+
 :root {
-  /* Color */
-  --bg: #f4f5fa;
-  --panel: #ffffff;
-  --ink: #161a23;
-  --muted: #6b7280;
-  --muted-2: #9aa0ad;
-  --border: #e6e8f0;
+  --font-display: 'Anybody', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 
-  --sidebar-bg: #0e1117;
-  --sidebar-bg-raised: #161a23;
-  --sidebar-text: #cdd1db;
-  --sidebar-text-dim: #6e7380;
-  --sidebar-active: #1f2430;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.9rem;
 
-  --accent-teal: #14b8a6;
-  --accent-indigo: #4f46e5;
-  --accent-grad: linear-gradient(135deg, #14b8a6 0%, #4f46e5 100%);
+  /* Sidebar — sempre escura nos dois temas */
+  --sidebar-bg: #0d0e12;
+  --sidebar-bg-raised: #1a1b1f;
+  --sidebar-text: #e3e2e7;
+  --sidebar-text-dim: #8c90a1;
+  --sidebar-active: #1e1f23;
+  --sidebar-border: rgba(255, 255, 255, 0.07);
+
+  /* Acentos partilhados (iguais nos dois temas) */
+  --accent: #0066ff;
+  --accent-glow: rgba(0, 102, 255, 0.35);
+  --accent-lime: #c3f400;
   --danger: #ef4444;
+  --muted-2: #8c90a1;
 
-  --radius-md: 10px;
-  --radius-lg: 16px;
+  /* Tema claro — "Kinetic High-Performance" (default) */
+  --bg: #f9f9ff;
+  --panel: #ffffff;
+  --panel-raised: #f1f3ff;
+  --ink: #141b2b;
+  --muted: #424656;
+  --border: #dce2f7;
+  --accent-hover: #0050cb;
+}
 
-  --font-display: "Sora", "Inter", sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+html[data-theme='dark'] {
+  /* "Kinetic High-Performance System" */
+  --bg: #121317;
+  --panel: #1a1b1f;
+  --panel-raised: #1e1f23;
+  --ink: #e3e2e7;
+  --muted: #c2c6d8;
+  --border: #343539;
+  --accent-hover: #0054d6;
 }
 
 * {
@@ -34,51 +52,39 @@ html,
 body,
 #root {
   height: 100%;
-  margin: 0;
 }
 
 body {
+  margin: 0;
+  font-family: var(--font-body);
   background: var(--bg);
   color: var(--ink);
-  font-family: var(--font-body);
-  -webkit-font-smoothing: antialiased;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
-button {
-  font-family: inherit;
-}
-
-:focus-visible {
-  outline: 2px solid var(--accent-indigo);
-  outline-offset: 2px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+  font-size: 1.15em;
+  line-height: 1;
+  user-select: none;
 }
 
 .app-shell {
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 264px 1fr;
   height: 100vh;
-  width: 100vw;
-  overflow: hidden;
+  background: var(--bg);
 }
 
-@media (max-width: 860px) {
+.main-panel {
+  height: 100%;
+  overflow-y: auto;
+  background: var(--bg);
+  position: relative;
+}
+
+@media (max-width: 720px) {
   .app-shell {
     grid-template-columns: 1fr;
   }
 }
-
-.main-panel {
-  background: var(--bg);
-  height: 100%;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-}
-

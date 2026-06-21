@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1782001287705,
+    "title": "Explica o significado das bandeiras e os...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Explica o significado das bandeiras e os tipos de pneus na Fórmula 1."
+      },
+      {
+        "role": "assistant",
+        "content": "Não encontrei essa informação nos meus ficheiros locais."
+      }
+    ]
+  },
+  {
+    "id": 1782001080111,
+    "title": "como funciona o fora de jogo?",
+    "messages": [
+      {
+        "role": "user",
+        "content": "como funciona o fora de jogo?"
+      },
+      {
+        "role": "assistant",
+        "content": "Não encontrei essa informação nos meus ficheiros locais."
+      }
+    ]
+  }
+]

@@ -1,0 +1,84 @@
+.input-bar {
+  width: 100%;
+}
+
+.attachment-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #eef0fb;
+  color: var(--accent-indigo);
+  font-size: 0.78rem;
+  padding: 5px 10px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+
+.attachment-remove {
+  border: none;
+  background: transparent;
+  color: var(--accent-indigo);
+  cursor: pointer;
+  font-size: 0.7rem;
+}
+
+.input-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 8px 6px 8px;
+  box-shadow: 0 2px 10px rgba(20, 23, 35, 0.05);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BASE CLASS — aplica-se aos dois botões da barra (anexar e enviar).
+   Edita aqui para mudar algo nos dois de uma vez.
+   ═══════════════════════════════════════════════════════════════ */
+.ib-btn {
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, opacity 0.15s ease;
+}
+
+/* ── Anexar (variante) ── */
+.attach-btn {
+  background: #f1f2f6;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.attach-btn:hover {
+  background: #e6e8f0;
+}
+
+.input-bar-text {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.92rem;
+  font-family: var(--font-body);
+  background: transparent;
+  padding: 8px 4px;
+}
+
+/* ── Enviar (variante) ── */
+.send-btn {
+  background: var(--accent-grad);
+  color: #fff;
+}
+
+.send-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}

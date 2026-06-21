@@ -1,6 +1,0 @@
-streamlit
-requests
-pypdf
-python-docx
-Pillow
-pytesseract

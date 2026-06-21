@@ -85,15 +85,16 @@ def chat(req: ChatRequest):
     messages = [m.dict() for m in req.messages]
     user_message = messages[-1]["content"] if messages else ""
 
-    system_prompt, scoped_folders = rag.build_system_prompt(
+    system_prompt, scoped_folders, used_sources = rag.build_system_prompt(
         user_message, uploaded_file_content=req.uploaded_file_content
     )
 
     def event_stream():
         full_text = ""
-        # Tell the frontend which local-docs scope is active for this turn,
-        # so the UI can show e.g. "a consultar: soccer/"
-        yield f"event: scope\ndata: {json.dumps({'folders': scoped_folders})}\n\n"
+        # Tell the frontend which local-docs scope (and which specific files)
+        # is active for this turn, so the UI can show e.g.
+        # "a consultar: soccer → regras.pdf"
+        yield f"event: scope\ndata: {json.dumps({'folders': scoped_folders, 'sources': used_sources})}\n\n"
 
         for token in rag.stream_ollama_response(system_prompt, messages):
             full_text += token

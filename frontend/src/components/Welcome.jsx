@@ -1,5 +1,6 @@
 import "./Welcome.css";
 import InputBar from "./InputBar.jsx";
+import logo from "../../assets/logo.png";
 
 const SUGGESTIONS = [
   { title: "Regras da NBA", label: "e detalhes da FIBA", prompt: "Quais são as principais regras do basquetebol da NBA e da FIBA?" },
@@ -11,8 +12,7 @@ const SUGGESTIONS = [
 export default function Welcome({ onPick, isStreaming, uploadedFileName, onAttach, onRemoveAttachment }) {
   return (
     <div className="welcome">
-      <div className="welcome-mark" aria-hidden="true" />
-      <h1 className="welcome-title">SportSphere</h1>
+      <img src={logo} alt="SportSphere" className="welcome-mark" />
       <p className="welcome-lead">
         Analisa eventos desportivos com confiança usando um assistente especializado em
         estatísticas, regulamentos e logística.

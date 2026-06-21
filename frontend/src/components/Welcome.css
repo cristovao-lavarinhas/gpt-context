@@ -9,10 +9,9 @@
 }
 
 .welcome-mark {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  background: var(--accent-grad);
+  width: 510px;
+  height: 162px;
+  object-fit: contain;
   margin-bottom: 18px;
 }
 

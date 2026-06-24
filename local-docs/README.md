@@ -1,40 +1,53 @@
-# Local Documents (Offline RAG)
+# Documentos Locais (RAG Offline)
 
-Put your local files in this folder so the chatbot can retrieve context without using the internet.
+Coloca aqui os teus ficheiros para que o chatbot possa responder com base
+neles, sem aceder à internet.
 
-Supported file types:
+## Tipos de ficheiro suportados
 
-- `.txt`
-- `.md`
-- `.json`
-- `.jsonl`
-- `.pdf` (if `pdf-parse` is available in dependencies)
-- `.csv`
-- `.tsv`
-- `.html`
-- `.htm`
+- `.pdf`
+- `.docx`
+- `.txt`, `.md`
+- `.csv`, `.tsv`
+- `.json`, `.jsonl`
+- `.html`, `.htm`
 - `.xml`
-- `.yaml`
-- `.yml`
+- `.yaml`, `.yml`
 - `.rtf`
+- Imagens (`.jpg`, `.jpeg`, `.png`, `.webp`, `.gif`) — via OCR
 
-Examples:
+## Estrutura de pastas
 
-- Competition regulations PDFs
-- Official rulebooks exported as HTML or XML
-- Event operation checklists in text or Markdown files
-- Structured reference tables in CSV or TSV
+A pasta está organizada por desporto. O backend deteta automaticamente
+qual a pasta a consultar com base no desporto mencionado na pergunta:
 
-Recommended structure:
+```
+local-docs/
+├── basketball/
+├── formula1/
+├── nfl/
+├── olympics/
+├── soccer/
+├── tennis/
+└── voleibol/
+```
 
-- `local-docs/f1/` for Formula 1 documents
-- `local-docs/futebol/` for football documents
-- `local-docs/tenis/` for tennis documents
-- `local-docs/eventos/` for event operations
+Podes criar pastas adicionais diretamente pela UI da app (página "Documentos").
+As 7 pastas originais não podem ser apagadas — estão ligadas à deteção
+automática de desporto.
 
-This folder is read only from local disk by the backend.
-No network request is performed by this RAG layer.
+## Exemplos de conteúdo útil
 
-If you have Word files, export them to PDF, TXT, HTML, or XML before placing them here.
+- Regulamentos oficiais em PDF
+- Livros de regras exportados como HTML ou XML
+- Tabelas de referência em CSV ou TSV
+- Notas e resumos em Markdown
 
-Uploaded files from the chat are handled separately from this folder, but they follow the same local-only rules.
+## Notas
+
+- Se tiveres ficheiros Word (`.docx`), podes colocá-los diretamente — são
+  suportados. Não precisas de exportar para PDF.
+- Os ficheiros enviados pelo chat (uploads) são processados separadamente
+  e não ficam guardados nesta pasta.
+- Nenhum pedido de rede é feito por esta camada de RAG — tudo é local.
+- Limite de 5MB por ficheiro nos uploads via chat.

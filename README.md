@@ -27,7 +27,25 @@ React (frontend :5173)  ->  FastAPI (backend :8000)  ->  Ollama (modelo local)
 (Esta explicação também está disponível dentro da própria app, na página
 "Arquitetura" da sidebar.)
 
-## 1. Backend
+## 1. Ollama (obrigatório antes de tudo)
+
+O Ollama tem de estar a correr **antes** de arrancar o backend, caso contrário
+o modelo aparece como OFFLINE na app.
+
+```bash
+ollama serve
+```
+
+Deixa este terminal **sempre aberto**. Noutro terminal, instala o modelo se
+ainda não o tiveres:
+
+```bash
+ollama pull qwen2.5:3b
+```
+
+## 2. Backend
+
+Noutro terminal:
 
 ```bash
 cd backend
@@ -40,7 +58,7 @@ uvicorn main:app --reload --port 8000
 
 Confirma que está no ar: `http://127.0.0.1:8000/api/health`
 
-## 2. Frontend
+## 3. Frontend
 
 Noutro terminal:
 
@@ -53,13 +71,6 @@ npm run dev
 Abre o URL que o Vite mostrar (normalmente `http://localhost:5173`; se
 a porta estiver ocupada, o Vite avança para 5174/5175 automaticamente —
 o backend já aceita CORS dessas três portas).
-
-## 3. Garantir que o Ollama está a correr
-
-```bash
-ollama serve
-ollama pull qwen2.5:3b
-```
 
 ## Estrutura
 

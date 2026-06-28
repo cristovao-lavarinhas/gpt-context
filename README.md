@@ -20,14 +20,61 @@ locais ou chamar o Ollama diretamente. Por isso toda a lógica (RAG, OCR,
 chamadas ao modelo) vive no backend, que o frontend contacta via HTTP:
 
 ```
-React (frontend :5173)  ->  FastAPI (backend :8000)  ->  Ollama (modelo local)
+React (frontend)  ->  FastAPI (backend)  ->  Ollama (modelo local)
 ```
 
-É preciso correr os dois processos em paralelo, cada um no seu terminal.
-(Esta explicação também está disponível dentro da própria app, na página
-"Arquitetura" da sidebar.)
+Há duas formas de correr isto: **Docker** (tudo orquestrado, recomendado)
+ou **manual** (três terminais, mais controlo/debug rápido). As duas
+funcionam com o mesmo código, só muda a forma de arrancar os processos.
 
-## 1. Ollama (obrigatório antes de tudo)
+---
+
+## Opção A — Docker (recomendado)
+
+Tudo corre dentro de containers: Ollama, backend e frontend. Não precisas
+de instalar Python, Node nem o Ollama no teu sistema.
+
+Pré-requisito: [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+instalado e a correr.
+
+```powershell
+# 1. Cria o ficheiro de histórico vazio (só na primeira vez,
+#    senão o Docker monta uma pasta em vez de um ficheiro)
+Set-Content backend\chat_history.json "[]"
+
+# 2. Constrói e arranca tudo (demora uns minutos na primeira vez)
+docker compose up -d --build
+
+# 3. Puxa o modelo para dentro do container do Ollama (só na primeira vez)
+docker compose exec ollama ollama pull qwen2.5:3b
+```
+
+Confirma que está no ar: `http://localhost:8000/api/health`
+
+Abre a app em: `http://localhost:5173`
+
+**Comandos úteis:**
+
+```powershell
+docker compose logs -f backend     # ver logs em tempo real
+docker compose down                # parar tudo
+docker compose up -d --build       # reconstruir depois de alterares código
+```
+
+**Persistência:** `local-docs/` e `backend/chat_history.json` são montados
+como volumes — qualquer alteração feita pela app fica guardada no teu
+disco, mesmo que pares ou reconstruas os containers. O modelo do Ollama
+fica guardado no volume `ollama_data` (não precisas de repetir o `pull`
+a menos que apagues esse volume).
+
+---
+
+## Opção B — Manual (sem Docker)
+
+Útil para debug rápido (sem rebuild de imagem a cada alteração) ou se
+preferires não usar Docker.
+
+### 1. Ollama (obrigatório antes de tudo)
 
 O Ollama tem de estar a correr **antes** de arrancar o backend, caso contrário
 o modelo aparece como OFFLINE na app.
@@ -43,7 +90,7 @@ ainda não o tiveres:
 ollama pull qwen2.5:3b
 ```
 
-## 2. Backend
+### 2. Backend
 
 Noutro terminal:
 
@@ -58,7 +105,12 @@ uvicorn main:app --reload --port 8000
 
 Confirma que está no ar: `http://127.0.0.1:8000/api/health`
 
-## 3. Frontend
+> Nota: a extração de texto de imagens (OCR) usa `pytesseract`, que precisa
+> do binário Tesseract instalado no sistema (não só do pacote Python).
+> Se correres sem Docker, instala-o separadamente — caso contrário o OCR
+> cai automaticamente para o fallback de modelo de visão via Ollama.
+
+### 3. Frontend
 
 Noutro terminal:
 
@@ -72,12 +124,17 @@ Abre o URL que o Vite mostrar (normalmente `http://localhost:5173`; se
 a porta estiver ocupada, o Vite avança para 5174/5175 automaticamente —
 o backend já aceita CORS dessas três portas).
 
+---
+
 ## Estrutura
 
 ```
 gpt-context/
 ├── .gitignore
+├── docker-compose.yml      # orquestra ollama + backend + frontend
 ├── backend/
+│   ├── Dockerfile
+│   ├── .dockerignore
 │   ├── main.py            # endpoints FastAPI (chat SSE, historico, upload,
 │   │                         health, gestao de documentos)
 │   ├── rag.py              # RAG, scoring, deteção de desporto, system
@@ -88,6 +145,8 @@ gpt-context/
 │   ├── storage.py          # historico de conversas em chat_history.json
 │   └── requirements.txt
 ├── frontend/
+│   ├── Dockerfile
+│   ├── .dockerignore
 │   ├── index.html
 │   └── src/
 │       ├── App.jsx                 # estado global, troca entre as 3 views
@@ -145,9 +204,15 @@ gpt-context/
 ## Notas técnicas
 
 - CORS no backend aceita `localhost`/`127.0.0.1` nas portas 5173–5175
-- O histórico de chat continua em `backend/chat_history.json` (fora do Git)
+  (válido tanto em modo Docker como manual, já que o frontend Docker está
+  mapeado para a porta 5173 do host)
+- O histórico de chat continua em `backend/chat_history.json` (fora do Git;
+  em Docker é montado como volume, por isso persiste entre `docker compose down/up`)
 - A "scope" (pasta de `local-docs` ativa) é auto-detetada pelo desporto
   mencionado na pergunta, ou via `[folders: soccer]` na mensagem
 - Limite de 5MB por ficheiro e tipos suportados: PDF, DOCX, TXT, MD, CSV,
   JSON, HTML, XML, YAML, RTF, e imagens (com OCR via Tesseract → Ollama
   Vision em cascata)
+- Em modo Docker, as variáveis de ambiente (`OLLAMA_BASE_URL`, `OLLAMA_MODEL`,
+  etc.) são definidas no `docker-compose.yml`, não no `.env` — o `.env`
+  continua a ser usado apenas no modo manual

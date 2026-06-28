@@ -1,0 +1,38 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: sportsphere-ollama
+    volumes:
+      - ollama_data:/root/.ollama
+    ports:
+      - "11434:11434"
+    restart: unless-stopped
+
+  backend:
+    build: ./backend
+    container_name: sportsphere-backend
+    depends_on:
+      - ollama
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - OLLAMA_MODEL=qwen2.5:3b
+      - LOCAL_RAG_STRICT_ONLY=true
+      - LOCAL_DOCS_PATH=/app/local-docs
+    volumes:
+      - ./local-docs:/app/local-docs
+      - ./backend/chat_history.json:/app/chat_history.json
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: sportsphere-frontend
+    depends_on:
+      - backend
+    ports:
+      - "5173:80"
+    restart: unless-stopped
+
+volumes:
+  ollama_data:
